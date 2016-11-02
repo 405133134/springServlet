@@ -1,5 +1,7 @@
 package cn.enn.springServlet;
 
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.nutz.dao.Dao;
@@ -18,7 +20,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 public class AppConfig {
 	
 	@Bean(name="mysqlDatasource")
-	public DataSource dataSource(){
+	public DataSource dataSource() throws Exception{
 		
 		DruidDataSource ds=new DruidDataSource();
 		ds.setUrl("jdbc:mysql://database.ennwifi.cn:8000/enn-v3");
@@ -27,6 +29,7 @@ public class AppConfig {
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
 		ds.setMaxActive(30);
 		ds.setMaxWait(5 * 1000);
+		ds.addFilters("stat");
 		return ds;
 	}
 	

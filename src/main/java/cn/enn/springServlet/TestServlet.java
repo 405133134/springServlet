@@ -2,6 +2,7 @@ package cn.enn.springServlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.nutz.lang.Lang;
 import org.nutz.resource.Scans;
@@ -22,6 +23,10 @@ public class TestServlet extends AbstractAnnotationConfigDispatcherServletInitia
 		super.onStartup(servletContext);
 		
 		Scans.me().init(servletContext);
+		
+		//添加监控
+		Dynamic addServlet = servletContext.addServlet("DruidStatView", "com.alibaba.druid.support.http.StatViewServlet");
+		addServlet.addMapping("/druid/*");
 		
 	}
 	
