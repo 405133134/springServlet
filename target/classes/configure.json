@@ -1,0 +1,15 @@
+{
+	"activeProfile":"localhost",
+	"profiles":[
+		  {
+			"profileName":"localhost",
+			"dataSource":{
+				"driver":"com.mysql.jdbc.Driver",
+				"url":"jdbc:mysql://database.ennwifi.cn:8000/enn-v3",
+				"user":"root",
+				"password":"enn1807"
+			}
+		 }
+	]
+}
+
